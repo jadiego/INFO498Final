@@ -1,0 +1,12 @@
+---
+title: "healthcare access"
+author: "John Diego, Warren Wakuzawa, Adrian Santiago"
+date: "2/26/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 9.5)
+```
+
+## National Health Interview Survey
