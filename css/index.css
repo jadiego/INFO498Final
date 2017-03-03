@@ -1,0 +1,66 @@
+.container {
+  width: 890px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+#page_header {
+  position: relative;
+  z-index: 2;
+}
+
+
+#graphic {
+  padding-top: 60px;
+}
+
+p {
+  padding: 20px;
+}
+
+#sections {
+  position: relative;
+  display: inline-block;
+  width: 350px;
+  top: 0px;
+  z-index: 90;
+  padding-bottom: 20px;
+}
+
+#vis {
+  display: none;
+  position: fixed;
+  top: 60px;
+  z-index: 1;
+}
+
+
+
+/* increase the font size for the title class */
+.title {
+  font-size:20px;
+  margin-bottom: 2px;
+  color: #262626;
+  line-height: 1.2em;
+}
+
+/* Give the step class a margin bottom of 300px */
+.step {
+  margin-bottom:300px;
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
+}
+
+.label {
+    font-size: 13px;
+}
+
+blockquote {
+    font-size: 14px !important;
+}
