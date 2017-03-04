@@ -23,56 +23,26 @@ var vis = d3.select("#vis");
 var update = function (value) {
     var localdata = data;
     var show_vis = true;
+    var year = null;
     switch (value) {
         case 0:
             console.log("in case", value);
             show_vis = false;
+            localdata = data.filter(function (d, i) { return i === 0 });
             break;
         case 1:
             console.log("in case", value);
             localdata = data.filter(function (d, i) { return i === 0 });
+            var year = "y2005";
             break;
         case 2:
             console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 1 });
+            localdata = data.filter(function (d, i) { return i === 0 || i === 1  || i === 2 || i === 3 || i === 4 || i === 5});
             break;
         case 3:
             console.log("in case", value);
             //yScale = d3.scale.sqrt().range([margin.top, height - margin.bottom]);
-            localdata = data.filter(function (d, i) { return i === 2 });
-            break;
-        case 4:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 3 });
-            break;
-        case 5:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 4 });
-            // localdata = data.filter(function(d) {return d.country == "Haiti" || d.country == "Rwanda";});
-            break;
-        case 6:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 5 });
-            break;
-        case 7:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 6 });
-            break;
-        case 8:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 7 });
-            break;
-        case 9:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 8 });
-            break;
-        case 10:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 9 });
-            break;
-        case 11:
-            console.log("in case", value);
-            localdata = data.filter(function (d, i) { return i === 10 });
+            localdata = data;
             break;
         default:
             show_vis = true;
@@ -118,10 +88,10 @@ function display(error, mydata) {
         var oldScroll = 0;
         $(window).scroll(function (event) {
             var scroll = $(window).scrollTop();
-            console.log("scroll", scroll);
-            if (scroll >= 4400 && scroll > oldScroll) {
-                vis.style("display", "none");
-            } else if (scroll >= 4400 && scroll < oldScroll) {
+            //console.log("scroll", scroll);
+            if (scroll >= 2400 && scroll > oldScroll) {
+                vis.style("display", "block");
+            } else if (scroll >= 2400 && scroll < oldScroll) {
                 vis.style("display", "inline-block"); // going backwards, turn it on.
             }
             oldScroll = scroll;

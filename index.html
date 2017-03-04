@@ -11,94 +11,66 @@
 
 <body>
     <div class="container">
-        <h1>Overview of Healthcare in the US</h1>
+        <h1>Overview of Healthcare Access in the US</h1>
         <p>The NHIS is the nation’s largest in-person household health survey. It has been conducted annually since 1957 by
             the National Center for Health Statistics (NCHS), which is a part of the Centers for Disease Control and Prevention
             (CDC). Interviewing is done by the U.S. Census Bureau’s field staff. During face-to-face interviews, participants
             provided sociodemographic data and information about health insurance coverage status.</p>
-        <p>The purpose of our research project is to explore health insurance coverage using the <strong>National Health Interview Survey (NHIS)</strong>            data. A broad range of topics are covered within the dataset, but we will specifically focus on <strong>healthcare access and expenditure</strong>            across a multitude of factors such as race and healthcare sources.</p>
+        <p>The purpose of our research project is to explore health insurance coverage using the <strong>National Health Interview Survey (NHIS)</strong>            data. A broad range of topics are covered within the dataset, but we will specifically focus on <strong>healthcare access and expenditure</strong> across a multitude of factors such as race and healthcare sources. We will explore three specific questions.</p>
     </div>
     <div id="page_header" class="container">
         <h2>How has the amount of money spent for medical care changed over the years?</h2>
-        <p> One specific set of question asked by the field staff was the health insurance coverage status. Below provides a
-            high level overview of the percentage of people who didn't have any health insurance. According to the codebook,
-            uninsured individuals include:</p>
+          <p> One specific set of question asked by the field staff was the health insurance coverage status. The following visualization
+            displays a high level overview of the percentage of people who <strong>didn't</strong> have any health insurance.
+            According to the <a href="https://www.cdc.gov/nchs/nhis/nhis_questionnaires.htm">codebook</a>, uninsured individuals
+            include:</p>
+        <blockquote>"Those without any private insurance, or without public health insurance coverage through Medicaid, Medicare, military
+            health care (1976 forward), Children's Health Insurance Program (CHIP) (1999 forward), or a state-sponsored or
+            other government program (1997 forward). Persons covered only by a private plan that paid for one type of service,
+            such as accidents or dental care, are also considered uninsured. Persons covered only by the Indian Health Service
+            (1993 forward) are coded as having no health insurance. "</blockquote>
+    </div>
         <div class="container">
-            <blockquote>"Those without any private insurance, or without public health insurance coverage through Medicaid, Medicare,
-                military health care (1976 forward), Children's Health Insurance Program (CHIP) (1999 forward), or a state-sponsored
-                or other government program (1997 forward). Persons covered only by a private plan that paid for one type
-                of service, such as accidents or dental care, are also considered uninsured. Persons covered only by the
-                Indian Health Service (1993 forward) are coded as having no health insurance. "</blockquote>
-        </div>
-    </div>
-
-    <div class="container">
-        <div id='graphic'>
-            <div id='sections'>
-                <section class="step">
-                    <div class="title">Blah</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2005</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2006</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2007</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2008</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2009</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2010</div>
-                    <text>
-                        <ul>
-                            <li>March 23, 2010: President Obama signs the Affordable Care Act into law. </li>
-                        </ul>
-                    </text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2011</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2012</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2013</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2014</div>
-                    <text>Some text.</text>
-                </section>
-                <section class="step">
-                    <div class="title">Year 2015</div>
-                    <text>Some text.</text>
-                </section>
+            <div id='graphic'>
+                <div id='sections'>
+                    <section class="step">
+                        <div class="title">Data Preparation</div>
+                        <text>To explore the question above, we looked at data from the 05' to 15' NHIS surveys, downloaded from <a href="https://ihis.ipums.org/ihis/">this</a> website. Using a stratified random sample, we counted the weighted total of the population who responded "No" to having any health insurance coverage. We then compared this to to the weighted population for that respective year, ultimately getting a weighted proportion of people that respective year who didn't have health insurance, accompanied by a confidence interval. 
+                        </text>
+                    </section>
+                    <section class="step">
+                        <div class="title">Year 2005</div>
+                        <text>Some text.</text>
+                    </section>
+                    <section class="step">
+                        <div class="title">Pre ACA: Year 2005-2010</div>
+                        <text>
+                            Overall, there seems to be an upward trend of proportion of people who don't have healthcare.
+                            <ul>
+                                <li>March 23, 2010: President Obama signs the Affordable Care Act into law. </li>
+                            </ul>
+                        </text>
+                    </section>
+                    <section class="step">
+                        <div class="title">Post ACA: Year 2011-2015</div>
+                        <text>Some text.</text>
+                    </section>
+                </div>
+                <div id="vis"></div>
             </div>
-            <div id="vis"></div>
         </div>
-    </div>
 
-    <!-- libraries -->
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="https://d3js.org/queue.v1.min.js"></script>
-    <script type="text/javascript" src="js/scroller.js"></script>
-    <script type="text/javascript" src="js/scroller-settings.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+        <div class="container">
+            <h2>Next question</h2>
+        </div>
+
+        <!-- libraries -->
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/queue.v1.min.js"></script>
+        <script type="text/javascript" src="js/scroller.js"></script>
+        <script type="text/javascript" src="js/scroller-settings.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

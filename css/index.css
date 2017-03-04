@@ -35,10 +35,9 @@ p {
 #vis {
   display: none;
   position: fixed;
-  top: 60px;
+  top: 200px;
   z-index: 1;
 }
-
 
 
 /* increase the font size for the title class */
@@ -51,16 +50,16 @@ p {
 
 /* Give the step class a margin bottom of 300px */
 .step {
-  margin-bottom:300px;
+  margin-bottom:500px;
   font-size: 16px;
   line-height: 23px;
   color: #767678;
 }
 
 .label {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 blockquote {
-    font-size: 14px !important;
+    font-size: 12px !important;
 }

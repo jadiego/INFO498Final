@@ -29,6 +29,32 @@ var yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left");
 
+// Circle positioning function
+var circleFunc = function (circle) {
+    circle.attr('r', 15)
+        .attr('fill', 'blue')
+        .attr('cx', function (d) { return xScale(d.year) })
+        .attr('cy', function (d) { return yScale(+0) })
+        .attr("opacity", 0)
+        .attr("id", function (d) {
+            return "y" + d.year;
+        })
+}
+
+// Error bar position fucntion
+var errorbarFunc = function (line) {
+    line
+        .attr('x1', function (d) { return xScale(d.year) })
+        .attr('x2', function (d) { return xScale(d.year) })
+        .attr('y1', function (d) { return yScale(0) })
+        .attr('y2', function (d) { return yScale(0) })
+        .attr("stroke", "gray")
+        .attr("opacity", 0)
+        .attr("id", function (d) {
+            return "error-y" + d.year;
+        })
+}
+
 //Create the empty SVG image
 var svg = d3.select("#vis")
     .append("svg")
@@ -84,31 +110,47 @@ function draw_lines(dataset) {
     // max of rates to 0 (reversed, remember)
     yScale.domain([ymin, ymax]);
 
-    // var groups = svg.selectAll("g.circle")
-    //     .data(dataset, function (d) { return d })
-
-    // groups
-    //     .enter()
-    //     .append("g")
-    //     .attr("class", "lines")
-
-    // groups.exit().transition().duration(1000).attr("opacity", 0).remove();
-
-    var circle = svg.selectAll("g.circle")
+    // draw each circle
+    var circle = svg.selectAll("circle")
         .data(dataset, function (d) { // because there's a group with data already...
-            return d; // it has to be an array for the line function
+            return d.yes;
         });
 
     circle
         .enter()
         .append("circle")
-        .attr("cx", function(d) { return xScale(d.year)})
-        .attr("cy", function(d) { return yScale(+d.yes)})
+        .call(circleFunc)
+
+    circle
+        .transition()
+        .duration(500)
+        .attr("opacity", 0.5)
+        .attr("cy", function (d) { return yScale(+d.yes) })
         .attr("r", 3)
 
-    circle.exit().remove()
+    circle.exit().transition().duration(500).attr("opacity", 0).remove()
 
-    circle.exit().transition().duration(1000).attr("opacity", 0)
+
+    //draw errorbars
+    var errorbar = svg.selectAll("line")
+        .data(dataset, function (d) { 
+            return d.yes
+        })
+
+    errorbar
+        .enter()
+        .append("line")
+        .call(errorbarFunc)
+
+    errorbar
+        .transition()
+        .duration(500)
+        .attr("opacity", 0.5)
+        .attr("y1", function (d) { return yScale(+d["yes.cil"]) })
+        .attr("y2", function (d) { return yScale(+d["yes.ciu"]) })
+    
+    errorbar.exit().transition().duration(500).attr("opacity", 0).remove()
+
 
     svg.select(".y.axis").transition().duration(300).call(yAxis);
 }
