@@ -49,7 +49,7 @@ wanted.rows <- c("Zero","Less than $500",
                  "$500 to $1999", "$2000 to $2999",
                  "$3000 to $4999", "$5000 or more")
 # Known expenditure for HI
-d1 <- spending %>% filter(HCSPENDY %in% wanted.rows)
+d1 <- d %>% filter(HCSPENDY %in% wanted.rows)
 
 
 # YES/NO to HI

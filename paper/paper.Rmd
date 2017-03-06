@@ -1,0 +1,52 @@
+---
+output: 
+  pdf_document:
+    citation_package: natbib
+    keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    template: '~/Google Drive/INFO498C/INFO498Final/paper/svm-latex-ms.tex'
+title: "Assesing Health Care Coverage and Access Utilizing the National Health Interview Survey"
+author:
+- name: John Diego
+  affiliation: University of Washington
+- name: Warren Wakuzawa
+  affiliation: University of Washington
+- name:  Adrian Santiago
+  affiliation: University of Washington
+abstract: "The National Health Interview Survey (NHIS) is the nation’s largest in-person household health survey. It has been conducted annually since 1957 by the National Center for Health Statistics (NCHS), which is a part of the Centers for Disease Control and Prevention (CDC). A broad range of topics are covered but we will specifically focus on healthcare access and expenditure across a multitude of factors such as employer information, race, and academic background."
+keywords: "healthcare, nhis, aca, medicaid, medicare"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontfamily: mathpazo
+fontsize: 10pt
+# spacing: double
+bibliography: ~/Google Drive/INFO498C/INFO498Final/paper/master.bib
+biblio-style: apsr
+---
+
+# INTRODUCTION
+Healthcare...(a hook, why we are doing it and then transition to three questions we have).
+
+The Patient Protection and Affordable Care Act (PPACA), commonly shortened to the Affordable Care Act (ACA) and nicknamed Obamacare, is one of the most important healthcare legislature, creating a significant impact on the US Health care system. However, with the arrival of President Trump in the Oval Office, and with the ACA repeal now underway, some speculate huge consequences, such as increased death rates([@trump]).
+
+The purpose of this paper is to assess healthcare coverage and access across a  multitude of factors. We will specifically look at three aspects of health care - the first aspect is the relationship between educational attainment and access to medical insurance, the second is an overall look at the population on which had health care coverage, and the final exploration covers healthcare expedinture over the years.
+
+# RELATED WORK
+A description of previous papers or projects related to your project.
+
+# METHODS
+A detailed explanation of the techniques and algorithms you used to solve the problem.
+
+# RESULTS
+The major insights resulting from your research.
+
+## Descriptive Statistics
+
+## Plots 
+
+# DISCUSSION
+What are the implications of your results?
+
+# FUTURE WORK
+A description of how your system could be extended.

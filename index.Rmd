@@ -7,8 +7,19 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 9.5)
+source("analysis.R")
 
-
+library(ggplot2)
 ```
 
 ## National Health Interview Survey
+
+
+```{r blah, echo=FALSE, fig.height=8}
+ggplot(parent.edu.income, aes(x=P31, y=P56)) + geom_point()
+
+```
+
+```{python}
+df = pd.read_csv('parent.edu.income.csv')
+```

@@ -1,0 +1,198 @@
+\documentclass[10pt,]{article}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
+\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+\usepackage[]{mathpazo}
+
+
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+
+
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\renewenvironment{abstract}
+ {{%
+    \setlength{\leftmargin}{0mm}
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \relax}
+ {\endlist}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+  \let \footnote \thanks
+    {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+}
+%\fi
+\makeatother
+
+
+
+
+\setcounter{secnumdepth}{0}
+
+
+
+\title{Assesing Health Care Coverage and Access Utilizing the National Health
+Interview Survey  }
+
+
+
+\author{\Large John Diego\vspace{0.05in} \newline\normalsize\emph{University of Washington}   \and \Large Warren Wakuzawa\vspace{0.05in} \newline\normalsize\emph{University of Washington}   \and \Large Adrian Santiago\vspace{0.05in} \newline\normalsize\emph{University of Washington}  }
+
+
+\date{}
+
+\usepackage{titlesec}
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\itshape}
+\titleformat*{\subsubsection}{\normalsize\itshape}
+\titleformat*{\paragraph}{\normalsize\itshape}
+\titleformat*{\subparagraph}{\normalsize\itshape}
+
+
+\usepackage{natbib}
+\bibliographystyle{apsr}
+
+
+
+\newtheorem{hypothesis}{Hypothesis}
+\usepackage{setspace}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+}
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={John Diego (University of Washington) and Warren Wakuzawa (University of Washington) and Adrian Santiago (University of Washington)},
+             pdfkeywords = {healthcare, nhis, aca, medicaid, medicare},  
+            pdftitle={Assesing Health Care Coverage and Access Utilizing the National Health
+Interview Survey},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+
+\begin{document}
+	
+% \pagenumbering{arabic}% resets `page` counter to 1 
+%
+% \maketitle
+
+{% \usefont{T1}{pnc}{m}{n}
+\setlength{\parindent}{0pt}
+\thispagestyle{plain}
+{\fontsize{18}{20}\selectfont\raggedright 
+\maketitle  % title \par  
+
+}
+
+{
+   \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
+\textbf{\authorfont John Diego} \hskip 15pt \emph{\small University of Washington}   \par \textbf{\authorfont Warren Wakuzawa} \hskip 15pt \emph{\small University of Washington}   \par \textbf{\authorfont Adrian Santiago} \hskip 15pt \emph{\small University of Washington}   
+
+}
+
+}
+
+
+
+
+
+
+
+\begin{abstract}
+
+    \hbox{\vrule height .2pt width 39.14pc}
+
+    \vskip 8.5pt % \small 
+
+\noindent The National Health Interview Survey (NHIS) is the nation's largest
+in-person household health survey. It has been conducted annually since
+1957 by the National Center for Health Statistics (NCHS), which is a
+part of the Centers for Disease Control and Prevention (CDC). A broad
+range of topics are covered but we will specifically focus on healthcare
+access and expenditure across a multitude of factors such as employer
+information, race, and academic background.
+
+
+\vskip 8.5pt \noindent \emph{Keywords}: healthcare, nhis, aca, medicaid, medicare \par
+
+    \hbox{\vrule height .2pt width 39.14pc}
+
+
+
+\end{abstract}
+
+
+\vskip 6.5pt
+
+\noindent  \section{INTRODUCTION}\label{introduction}
+
+Healthcare\ldots{}(a hook, why we are doing it and then transition to
+three questions we have).
+
+The Patient Protection and Affordable Care Act (PPACA), commonly
+shortened to the Affordable Care Act (ACA) and nicknamed Obamacare, is
+one of the most important healthcare legislature, creating a significant
+impact on the US Health care system. However, with the arrival of
+President Trump in the Oval Office, and with the ACA repeal now
+underway, some speculate huge consequences, such as increased death
+rates(\citep{trump}).
+
+The purpose of this paper is to assess healthcare coverage and access
+across a multitude of factors. We will specifically look at three
+aspects of health care - the first aspect is the relationship between
+educational attainment and access to medical insurance, the second is an
+overall look at the population on which had health care coverage, and
+the final exploration covers healthcare expedinture over the years.
+
+\section{RELATED WORK}\label{related-work}
+
+A description of previous papers or projects related to your project.
+
+\section{METHODS}\label{methods}
+
+A detailed explanation of the techniques and algorithms you used to
+solve the problem.
+
+\section{RESULTS}\label{results}
+
+The major insights resulting from your research.
+
+\section{DISCUSSION}\label{discussion}
+
+What are the implications of your results?
+
+\section{FUTURE WORK}\label{future-work}
+
+A description of how your system could be extended.
+\newpage
+\singlespacing 
+\bibliography{/Users/elpresidente/Google Drive/INFO498C/INFO498Final/paper/master.bib}
+\end{document}svm
