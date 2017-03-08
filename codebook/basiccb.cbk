@@ -1,0 +1,602 @@
+Description: Revision of (rectangular data for health insurance
+Samples selected:
+      IHIS 2005                                         regular
+      IHIS 2006                                         regular
+      IHIS 2007                                         regular
+      IHIS 2008                                         regular
+      IHIS 2009                                         regular
+      IHIS 2010                                         regular
+      IHIS 2011                                         regular
+      IHIS 2012                                         regular
+      IHIS 2013                                         regular
+      IHIS 2014                                         regular
+      IHIS 2015                                         regular
+File Type:                    rectangular
+Case Selection:               No
+  Variable               Columns        Len    2005    2006    2007    2008    2009    2010    2011    2012    2013    2014    2015   
+  RECTYPE            1   1              1      X       X       X       X       X       X       X       X       X       X       X 
+  YEAR               1   2-5            4      X       X       X       X       X       X       X       X       X       X       X 
+  SERIAL             1   6-11           6      X       X       X       X       X       X       X       X       X       X       X 
+  STRATA             1  12-15           4      X       X       X       X       X       X       X       X       X       X       X 
+  PSU                1  16-18           3      X       X       X       X       X       X       X       X       X       X       X 
+  NHISHID            1  19-32          14      X       X       X       X       X       X       X       X       X       X       X 
+  HHWEIGHT           1  33-38           6      X       X       X       X       X       X       X       X       X       X       X 
+  REGION             1  39-40           2      X       X       X       X       X       X       X       X       X       X       X 
+  NHISPID            2  41-56          16      X       X       X       X       X       X       X       X       X       X       X 
+  HHX                2  57-62           6      X       X       X       X       X       X       X       X       X       X       X 
+  FMX                2  63-64           2      X       X       X       X       X       X       X       X       X       X       X 
+  PX                 2  65-66           2      X       X       X       X       X       X       X       X       X       X       X 
+  PERWEIGHT          2  67-75           9      X       X       X       X       X       X       X       X       X       X       X 
+  SAMPWEIGHT         2  76-84           9      X       X       X       X       X       X       X       X       X       X       X 
+  FWEIGHT            2  85-90           6      X       X       X       X       X       X       X       X       X       X       X 
+  ASTATFLG           2  91              1      X       X       X       X       X       X       X       X       X       X       X 
+  CSTATFLG           2  92              1      X       X       X       X       X       X       X       X       X       X       X 
+  PERNUM             2  93-94           2      X       X       X       X       X       X       X       X       X       X       X 
+  RACEA              2  95-97           3      X       X       X       X       X       X       X       X       X       X       X 
+  REGIONBR           2  98-99           2      X       X       X       X       X       X       X       X       X       X       X 
+  EDUC               2 100-101          2      X       X       X       X       X       X       X       X       X       X       X 
+  HCSPENDY           2 102              1      X       X       X       X       X       X       X       X       X       X       X 
+  USUALPL            2 103              1      X       X       X       X       X       X       X       X       X       X       X 
+  DELAYCOST          2 104              1      X       X       X       X       X       X       X       X       X       X       X 
+  YBARCARE           2 105              1      X       X       X       X       X       X       X       X       X       X       X 
+  CHANGEIN           2 106              1      X       X       X       X       X       X       X       X       X       X       X 
+  HINOTCOVE          2 107              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIPUBCOVE          2 108              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIMCAIDE           2 109              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIMCAREE           2 110              1      X       X       X       X       X       X       X       X       X       X       X 
+  HINOTCOV           2 111-112          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIPUBCOV           2 113-114          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIPRIVATE          2 115-116          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIMCAID            2 117              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIMCARE            2 118              1      X       X       X       X       X       X       X       X       X       X       X 
+  HINONE             2 119              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIOTHGOV           2 120              1      X       X       X       X       X       X       X       X       X       X       X 
+  SINGLE             2 121              1      X       X       X       X       X       X       X       X       X       X       X 
+  MCARETYP           2 122              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIATWORK           2 123              1      X       X       X       X       X       X       X       X       X       X       X 
+  HINOTYR            2 124              1      X       X       X       X       X       X       X       X       X       X       X 
+  HINOTYRMO          2 125-126          2      X       X       X       X       X       X       X       X       X       X       X 
+  HINOUNEMPR         2 127-128          2      X       X       X       X       X       X       X       X       X       X       X 
+  HINOEMPR           2 129-130          2      X       X       X       X       X       X       X       X       X       X       X 
+  HINOCOSTR          2 131-132          2      X       X       X       X       X       X       X       X       X       X       X 
+  HINOREFUSER        2 133-134          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIPWORKR           2 135-136          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIPBUYOWNR         2 137-138          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIPSELFR           2 139-140          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIP1CAID           2 141              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIP1COST           2 142-146          5      X       X       X       X       X       X       X       X       X       X       X 
+  HIP1EMP            2 147              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIP1HOWGOT         2 148-149          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIP1TYPE           2 150              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIP2CAID           2 151              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIP2COST           2 152-156          5      X       X       X       X       X       X       X       X       X       X       X 
+  HIP2EMP            2 157              1      X       X       X       X       X       X       X       X       X       X       X 
+  HIP2HOWGOT         2 158-159          2      X       X       X       X       X       X       X       X       X       X       X 
+  HIP2TYPE           2 160              1      X       X       X       X       X       X       X       X       X       X       X 
+  HISTOP8            2 161              1      X       X       X       X       X       X       X       X       X       X       X 
+  HISTOP11           2 162              1      X       X       X       X       X       X       X       X       X       X       X 
+  HISTOP14           2 163              1      X       X       X       X       X       X       X       X       X       X       X 
+  FAMDELAYCOST       2 164              1      X       X       X       X       X       X       X       X       X       X       X 
+  FAMYBARCAR         2 165              1      X       X       X       X       X       X       X       X       X       X       X 
+  FAMYBARCARNO       2 166-167          2      X       X       X       X       X       X       X       X       X       X       X 
+
+Variable Availability Key:
+All Years X - available in this sample
+All Years . - not available in this sample
+
+
+ YEAR		Survey year
+1963		1963
+1964		1964
+1965		1965
+1966		1966
+1967		1967
+1968		1968
+1969		1969
+1970		1970
+1971		1971
+1972		1972
+1973		1973
+1974		1974
+1975		1975
+1976		1976
+1977		1977
+1978		1978
+1979		1979
+1980		1980
+1981		1981
+1982		1982
+1983		1983
+1984		1984
+1985		1985
+1986		1986
+1987		1987
+1988		1988
+1989		1989
+1990		1990
+1991		1991
+1992		1992
+1993		1993
+1994		1994
+1995		1995
+1996		1996
+1997		1997
+1998		1998
+1999		1999
+2000		2000
+2001		2001
+2002		2002
+2003		2003
+2004		2004
+2005		2005
+2006		2006
+2007		2007
+2008		2008
+2009		2009
+2010		2010
+2011		2011
+2012		2012
+2013		2013
+2014		2014
+2015		2015
+
+ REGION		Region of residence
+01		Northeast
+02		North Central/Midwest
+03		South
+04		West
+09		Unknown
+
+ ASTATFLG		Sample adult flag
+0		NIU
+1		Sample adult, has record
+2		Sample adult, no record
+3		Not selected as sample adult
+4		No one selected as sample adult
+5		Armed force member
+6		AF member, selected as sample adult
+
+ CSTATFLG		Sample child flag
+0		NIU
+1		Sample child-has record
+2		Sample child-no record
+3		Not selected as sample child
+4		No one selected as sample child
+5		Emancipated minor
+
+ RACEA		Main Racial Background (Pre-1997 Revised OMB Standards), self-reported or interviewer reported
+100		White
+200		Black/African-American
+300		Aleut, Alaskan Native, or American Indian
+310		Alaskan Native or American Indian
+320		Alaskan Native/Eskimo
+330		Aleut
+340		American Indian
+400		Asian or Pacific Islander
+410		Asian
+411		Chinese
+412		Filipino
+413		Korean
+414		Vietnamese
+415		Japanese
+416		Asian Indian
+420		Pacific Islander
+421		Hawaiian
+422		Samoan
+423		Guamanian
+430		Other Asian or Pacific Islander
+431		Other Asian or Pacific Islander (1992-1995)
+432		Other Asian or Pacific Islander (1996)
+433		Other Asian or Pacific Islander (1997-1998)
+434		Other Asian (1999 forward)
+500		Other Race
+510		Other Race (1969-1977)
+520		Other Race (1978)
+530		Other Race (1979-1991)
+540		Other Race (1992-1995)
+550		Other Race (1996)
+560		Other Race (1997-1998)
+570		Other Race (1999-2002)
+580		Primary Race not releasable
+600		Multiple Race, No Primary Race Selected
+900		Unknown
+970		Unknown-refused
+980		Unknown-not ascertained
+990		Unknown (1997forward: Don't know)
+
+ REGIONBR		Global region of birth
+01		United States
+02		Mexico, Central America, Caribbean Islands
+03		South America
+04		Europe
+05		Russia (and former USSR areas)
+06		Africa
+07		Middle East
+08		Indian Subcontinent
+09		Asia
+10		SE Asia
+11		Elsewhere
+99		Unknown
+
+ EDUC		Educational attainment
+00		NIU
+01		Never attended/kindergarten only
+02		Grade 1
+03		Grade 2
+04		Grade 3
+05		Grade 4
+06		Grade 5
+07		Grade 6
+08		Grade 7
+09		Grade 8
+10		Grade 9
+11		Grade 10
+12		Grade 11
+13		12th grade, no diploma
+14		High school graduate
+15		GED or equivalent
+16		Some college, no degree
+17		AA degree: technical/vocational/occupational
+18		AA degree: academic program
+19		Bachelor's degree (BA, AB, BS, BBA)
+20		Master's degree (MA, MS, Meng, Med, MBA)
+21		Professional degree (MD, DDS, DVM, JD)
+22		Doctoral degree (PhD, EdD)
+97		Unknown--refused
+98		Unknown--not ascertained
+99		Unknown--don't know
+
+ HCSPENDY		Amount family spent for medical care, past 12 months
+1		Zero
+2		Less than $500
+3		$500 to $1999
+4		$2000 to $2999
+5		$3000 to $4999
+6		$5000 or more
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ USUALPL		Has usual place for medical care
+0		NIU
+1		There is no place or No
+2		Yes, has a usual place or Yes
+3		There is more than one place
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ DELAYCOST		Medical care delayed due to cost, past 12 months
+0		NIU
+1		No
+2		Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know (1993-96: DK or refused)
+
+ YBARCARE		Needed but couldn't afford medical care, past 12 months
+1		No
+2		Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ CHANGEIN		Changed usual place for health care for insurance reasons
+0		NIU
+1		No
+2		Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HINOTCOVE		Health Insurance coverage status
+0		NIU
+1		No, has coverage
+2		Yes, has no coverage
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIPUBCOVE		Has any Medicaid/other public assistance/State sponsored plan or CHIP (recode)
+0		NIU
+1		No
+2		Yes
+9		Unknown/refused
+
+ HIMCAIDE		Covered by Medicaid: Recode
+1		No
+2		Yes, information
+3		Yes, but no information
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIMCAREE		Covered by Medicare: Recode
+1		No
+2		Yes, information
+3		Yes, but no information
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HINOTCOV		Has no health insurance (excluding single service plans)
+00		NIU
+01		No, has coverage
+02		Yes, has no coverage
+09		Unknown/refused
+
+ HIPUBCOV		Has any public insurance (Medicaid/other public assistance/State sponsored plan or CHIP)
+00		NIU
+01		No
+02		Yes
+09		Unknown/refused
+
+ HIPRIVATE		Has any private health insurance
+00		NIU
+01		No
+02		Yes
+07		Unknown-refused
+08		Unknown-not ascertained
+09		Unknown-don't know
+
+ HIMCAID		Has Medicaid insurance
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIMCARE		Has Medicare insurance
+0		NIU
+1		Not mentioned or No
+2		Mentioned or Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HINONE		Has no health insurance
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIOTHGOV		Has other government program insurance
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ SINGLE		Any single service plan (recode)
+0		NIU
+1		Not mentioned
+2		Mentioned
+9		Unknown
+
+ MCARETYP		Type of Medicare coverage
+0		NIU
+1		Part A, Hospital only
+2		Part B, Medical only
+3		Both Part A and Part B
+4		Card not available
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIATWORK		Health insurance offered through workplace
+0		NIU
+1		No
+2		Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HINOTYR		Had no health coverage at some point during past 12 months
+0		NIU
+1		No
+2		Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HINOTYRMO		Months without health coverage, past 12 months
+00		NIU
+01		1 month
+02		2 months
+03		3 months
+04		4 months
+05		5 months
+06		6 months
+07		7 months
+08		8 months
+09		9 months
+10		10 months
+11		11 months
+12		12 months
+97		Unknown-refused
+98		Unknown-not ascertained
+99		Unknown-don't know
+
+ HINOUNEMPR		Reasons for no insurance: Unemployment
+00		NIU
+01		No
+02		Yes
+07		Unknown-refused
+08		Unknown-not ascertained
+09		Unknown-don't know
+
+ HINOEMPR		Reasons for no insurance: Employment-related reason
+00		NIU
+01		No
+02		Yes
+07		Unknown - refused
+08		Unknown - not ascertained
+09		Unknown - don't know
+
+ HINOCOSTR		Reasons for no insurance: Too expensive
+00		NIU
+01		No
+02		Yes
+09		Unknown
+
+ HINOREFUSER		Reasons for no insurance: Poor health/refused coverage
+00		NIU
+01		No
+02		Yes
+09		Unknown
+
+ HIPWORKR		Has any private insurance obtained through employment
+00		NIU
+01		No
+02		Yes
+09		Unknown
+
+ HIPBUYOWNR		Has any private insurance purchased directly
+00		NIU
+01		No
+02		Yes
+07		Unknown - refused
+08		Unknown - not ascertained
+09		Unknown - don't know
+
+ HIPSELFR		Has any private insurance plan paid for by self/family
+00		NIU
+01		No
+02		Yes
+09		Unknown
+
+ HIP1CAID		Plan 1: Paid for by Medicaid
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIP1EMP		Plan 1: Paid for by employer/union
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIP1HOWGOT		Plan 1: How insurance obtained
+00		NIU
+01		Through employer
+02		Through union
+03		Through workplace, unk if employer or union
+04		Through workplace, self-employed or professional association
+05		Purchased directly
+06		Through healthcare.gov or the Affordable Care Act
+07		Through state or local gov or community program
+08		Other
+09		Through school
+10		Through parents
+11		Through relative other than parents
+97		Unknown-refused
+98		Unknown-not ascertained
+99		Unknown-don't know
+
+ HIP1TYPE		Plan 1: Type of plan
+0		NIU
+1		HMO/IPA
+2		PPO
+3		POS
+4		Fee for service/indemnity
+5		Other
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIP2CAID		Plan 2: Paid for by Medicaid
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIP2COST		Plan 2: Out-of-pocket premium cost
+00000		NIU
+20000		$20,000 or more
+99997		Unknown-refused
+99998		Unknown-not ascertained
+99999		Unknown-don't know
+
+ HIP2EMP		Plan 2: Paid for by employer/union
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HIP2HOWGOT		Plan 2: How plan was originally obtained
+00		NIU
+01		Employer
+02		Union
+03		Through work, but DK if employer or union
+04		Through work, self-employ or prof assoc
+05		Purchased directly
+06		Through Healthcare.gov or the Affordable Care Act, also known as Obamacare
+07		Through a state/local government or community program
+08		Other
+09		Through school
+10		Through parents
+11		Through relative other than parents
+97		Unknown-refused
+98		Unknown-not ascertained
+99		Unknown-don't know
+
+ HIP2TYPE		Plan 2: Type of plan
+0		NIU
+1		HMO/IPA
+2		PPO
+3		POS
+4		Fee-for-service/indemnity
+5		Other
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HISTOP8		Why coverage stopped: Employer doesn't offer coverage/not eligible
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HISTOP11		Why coverage stopped: Cost is too high
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ HISTOP14		Why coverage stopped: Lost Medicaid/Medical because new job/income
+0		NIU
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ FAMDELAYCOST		Any family member delayed seeking medical care due to cost, past 12 months
+1		Not mentioned
+2		Mentioned
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
+
+ FAMYBARCAR		Any family member need and not get medical care (due to cost), past 12 months
+1		No
+2		Yes
+7		Unknown-refused
+8		Unknown-not ascertained
+9		Unknown-don't know
