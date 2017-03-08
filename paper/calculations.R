@@ -18,7 +18,19 @@ d$HCSPENDY <- factor(d$HCSPENDY,
                                 "$3000 to $4999", "$5000 or more",
                                 "Unknown-refused", "Unknown-not ascertained",
                                 "Unknown-don't know"))
-summary(d$HCSPENDY)
+
+# Variable HINOTCOVE is coded 0-9
+d$HINOTCOVE <- factor(d$HINOTCOVE,
+                      levels = c(0, 1, 2, 7, 8, 9),
+                      labels = c("NIU","No, has coverage", "Yes, has no coverage", 
+                                 "Unknown-refused", "Unknown-not ascertained", 
+                                 "Unknown-don't know"))
+
+# Variable HIPWORKR is coded 0-9
+d$HIPWORKR <- factor(d$HIPWORKR,
+                     levels = c(0, 1, 2, 9),
+                     labels = c("NIU", "No", 
+                                "Yes", "Unknown"))
 
 ############################################################
 ################### Subset Dataframes ######################
@@ -37,6 +49,18 @@ wanted.rows <- c("Zero","Less than $500",
 d1 <- d %>% filter(HCSPENDY %in% wanted.rows)
 spend.years <- d1 %>% group_by(HCSPENDY, YEAR) %>% summarise(count = n())
 
+# Row value with valid money spent on health insurance info
+wanted.rows <- c("Zero","Less than $500",
+                 "$500 to $1999", "$2000 to $2999",
+                 "$3000 to $4999", "$5000 or more")
+# Known expenditure for HI
+d3 <- d %>% filter(HCSPENDY %in% wanted.rows)
+
+
+# YES/NO to HI
+hi.cover.status <- d %>% filter(HINOTCOVE %in% c("No, has coverage", "Yes, has no coverage"))
+
+
 # NHIS survey data - 2015
 d2015 <- read.csv("../prepped/personsx.csv")
 
@@ -47,6 +71,10 @@ d2015.odds.ratio <- d2015 %>% select(EDUC1, NOTCOV) %>% filter(NOTCOV != 9)
 d2015.hs.odds.ratio <- d2015.odds.ratio %>% filter(EDUC1 == 14)
 d2015.ba.odds.ratio <- d2015.odds.ratio %>% filter(EDUC1 == 18)
 
+# Coverage of health insurance for 2015
+d2015hi.covered <- d2015 %>% filter(NOTCOV == 2) %>% count_()
+d2015hi.not.covered <- d2015 %>% filter(NOTCOV == 1) %>% count_()
+d2015hi <- data.frame(d2015hi.covered, d2015hi.not.covered)
 
 ############################################################
 ################## Distribution Graphs #####################
@@ -68,12 +96,26 @@ ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~NOTCOV) +
 ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~HIEMPOF) +
   ggtitle('Education Level vs. Workplace-offered Health Insurance') + labs(x='Education Level')
 
+#Bar chart
+# HI for 2015
+h <- c(92181/102687 * 100, 10506/102687 * 100)
+m <-  c("Covered", "Not Covered")
+h2 <- c(78.69, 89.76)
+m2 <- c("Employer Based", "All Coverage")
+
 ############################################################
 ################### Stratified Sample ######################
 ############################################################
 
 # Survey design with known expend. in health insurance
 d2 <- svydesign(id=~PSU, strata = ~STRATA, weights = ~PERWEIGHT, data=d1, nest = T)
+
+# Survey design covering health insurance coverage
+d4 <- svydesign(id=~PSU, strata = ~STRATA, weights = ~PERWEIGHT, data = hi.cover.status, nest = T)
+
+# Count of people who had health insurance grouped by year and got through employer
+d6 <- svyby(~factor(HINOTCOVE), ~YEAR, d4, svytotal, vartype = c("ci", "se"))
+
 
 # Average of people for each level of money spent on health insurance
 svymean(~HCSPENDY, d2)
@@ -93,11 +135,33 @@ colnames(d5) <- c("YEAR","zero", "lessthan500",
                  "ci_u.spend500to1999", "ci_u.spend2000to2999",
                  "ci_u.spend3000to4999", "ci_u.spend5000ormore")
 
+
+# print colnames
+colnames(d6)
+
+# rename col names of df:who has HI
+d6 <- d6 %>% rename(YEAR = `YEAR`, no = `factor(HINOTCOVE)No, has coverage`,
+                    yes = `factor(HINOTCOVE)Yes, has no coverage`, no.se = `se.factor(HINOTCOVE)No, has coverage`,
+                    yes.se = `se.factor(HINOTCOVE)Yes, has no coverage`, no.cil = `ci_l.factor(HINOTCOVE)No, has coverage`,
+                    yes.cil = `ci_l.factor(HINOTCOVE)Yes, has no coverage`, no.ciu = `ci_u.factor(HINOTCOVE)No, has coverage`,
+                    yes.ciu = `ci_u.factor(HINOTCOVE)Yes, has no coverage`)
+
+
 ############################################################
 #################### Final Dataframes ######################
 ############################################################
 
+# HI Expenditure over years
 hi.spend <- inner_join(pop, d5, by = "YEAR")
+
+
+# HI access over years
+# No means, they do have coverage
+hi.cover <- inner_join(pop, d6, by = "YEAR")
+hi.cover <- hi.cover %>% transmute( year = YEAR, no = no/population, yes = yes/population, 
+                                    no.se = no.se/population, yes.se = yes.se/population, 
+                                    no.cil = no.cil/population, yes.cil = yes.cil/population,
+                                    no.ciu = no.ciu/population, yes.ciu = yes.ciu/population)
 
 ############################################################
 ################ Weighted Visualizations ###################
