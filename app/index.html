@@ -11,15 +11,21 @@
 
 <body>
     <div class="container">
-        <h1>Overview of Healthcare Access in the US</h1>
+        <h1>Overview of Healthcare Access, Expenditure, and Coverage in the US</h1>
         <p>The NHIS is the nation’s largest in-person household health survey. It has been conducted annually since 1957 by
             the National Center for Health Statistics (NCHS), which is a part of the Centers for Disease Control and Prevention
             (CDC). Interviewing is done by the U.S. Census Bureau’s field staff. During face-to-face interviews, participants
             provided sociodemographic data and information about health insurance coverage status.</p>
-        <p>The purpose of our research project is to explore health insurance coverage using the <strong>National Health Interview Survey (NHIS)</strong>            data. A broad range of topics are covered within the dataset, but we will specifically focus on <strong>healthcare access and expenditure</strong>            across a multitude of factors such as race and healthcare sources. We will explore three specific questions.</p>
+        <p>The purpose of our research project is to explore health insurance coverage using the <strong>National Health Interview Survey (NHIS)</strong>            data. A broad range of topics are covered within the dataset, but we will specifically focus on <strong>healthcare access, coverage, and expenditure</strong>            across a multitude of factors such as over time and educational attainment. We explore three specific questions:</p>
+        <ol id="questions">
+            <li><strong>Access</strong>: Does higher educational attainment cause greater chance of acquiring medical insurance?</li>
+            <li><strong>Coverage</strong>: What percentage of the population had health coverage? </li>
+            <li><strong>Expenditure</strong>: How has the amount of money spent for medical care changed over the years?</li>
+        </ol>
     </div>
-    <div id="page_header" class="container">
+    <div  class="container">
         <h3>Healthcare Access</h3>
+        <h4 class="quote">"Does higher educational attainment cause greater chance of acquiring medical insurance?"</h4>
         <p> One specific set of question asked by the field staff was the health insurance coverage status. The following visualization
             displays a high level overview of the percentage of people who <strong>didn't</strong> have any health insurance.
             According to the <a href="https://www.cdc.gov/nchs/nhis/nhis_questionnaires.htm">codebook</a>, uninsured individuals
@@ -46,14 +52,22 @@
                 </section>
                 <section class="step">
                     <div class="title">Year 2005</div>
-                    <text>Some text.</text>
+                    <text>
+                        <ul>
+                            <li><strong> Deficit Reduction Act of 2005 is introduced</strong></li>
+                            <ul>
+                                <li>Mainly aimed to "provides States with much of the flexibility they have been seeking over the years to make significant reforms to their Medicaid Programs." - <a href="https://www.cms.gov/Regulations-and-Guidance/Legislation/DeficitReductionAct/downloads/checklist1.pdf">Source</a></li>
+                                <li>Average percent of population with no health insurance is 14.4% (CI: 13.89% , 14.90%)</li>
+                            </ul>
+                        </ul>
+                    </text>
                 </section>
                 <section class="step">
                     <div class="title">Pre ACA: Year 2005-2010</div>
                     <text>
-                        Overall, there seems to be an upward trend of proportion of people who don't have healthcare.
+                        Looking at health insurance coverage alone, overall, there seems to be an upward trend of proportion of people who doesn't have healthcare. The porportion of people without health care coverage increased from 2005(M= 14.4%, CI: [13.89% , 14.90%]) to 2010 (M= 15.88%, CI = [15.28%, 16.48%]). 
                         <ul>
-                            <li>March 23, 2010: President Obama signs the Affordable Care Act into law. </li>
+                            <li>March 23, 2010: President Obama signs the <a href="">Patient Protection and Affordable Care Act</a> into law. </li>
                         </ul>
                     </text>
                 </section>
@@ -68,11 +82,23 @@
 
     <div class="container">
         <h3>Healthcare Expenditure</h3>
+        <h4 class="quote">"How has the amount of money spent for medical care changed over the years?"</h4>
+        <p> The NHIS survey contained various information on healthcare expenditure, such as the premiums they pay for all the individual health care plans they currently had. One specific question asked respondents the total amount of money spent for medical care, for the past year. This independent variable only provides a rough estimate on the family's expenditure on medical care, but is still relevant since interviewers directed respondents to exclude the insurance premiums, over-the-counter drugs, and any costs for which they expected to be reimbursed. A distribution of this can be seen below:
+        </p>
         <p></p>
+        <p>Right off the bat we could see that for the most part, respondents are spending less than $500 only for health insurance, which fluctuates between 25,000 to 40,000 people every year. The next biggest group would be the people spending $500 to $1999, fluctuating between 20,000 to 33,000 people every year.</p> Of course, this is just an estimate, but a statistical inference can be made on the greater population, by using survey weights provided within the NHIS dataset. A <strong>stratified random sampling</strong> was implemented to calculate our weighted proportions of health expenditure. The results can be seen below:
+        <p></p>
+        <p>We see that the largest proportion of people mostly spent less than 500 dollars through out time, with atleast more than 30% given any year. Specifically, for 2005, 37.5% percent of the population spent less than 500 dollars, but for 2015, it went down to 32.04%. For the people spending no money on health insurance, this proportion mostly stayed between 8% to 12% over the years, with a positive increase over time. One would expect that with the introduction of the Affordable Care Act in 2010, which promised <a href="http://time.com/money/4503325/obama-health-care-costs-obamacare/">reducing health care costs to make it more affordable</a>, the amount of money people are spending on health care would <strong>decrease</strong>. These expectations turned out to be true, since the graph reflects a positive rate of change for people spending no money on health insurance, and negative rate of change for people spending less than 500 dollars.</p>
     </div>
 
     <div class="container">
         <h3>Healthcare Coverage</h3>
+        <h4 class="quote">"What percentage of the population had health insurance coverage?"</h4>
+        <p></p>
+    </div>
+
+    <div class="container">
+        <h3>Summary of Insights</h3>
         <p></p>
     </div>
 
