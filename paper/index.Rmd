@@ -1,0 +1,63 @@
+---
+title: "healthcare access"
+author: "John Diego, Warren Wakuzawa, Adrian Santiago"
+date: "2/26/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 9.5)
+source("calculations.R")
+
+library(ggplot2)
+```
+
+## Overview of Healthcare Access and Coverage in the US
+
+```{r expenddistribution, echo=FALSE}
+# Line chart
+# Change of expend over years (Not weighted)
+ggplot(spend.years, aes(x=YEAR, y=count/1000, colour=HCSPENDY)) +
+  geom_line() + geom_point(size=.7) +
+  labs(x="Year", y="Sum of People (Thousands)", title = "Distribution of Health Expenditure") +
+  theme(legend.title=element_blank())
+```
+
+
+```{r weightedexpendproportion, echo=FALSE, fig.height=6}
+ggplot(hi.spend, aes(y=factor(YEAR))) +
+  geom_point(data= hi.spend, aes(x=zero/population * 100, colour='red'), size=.9) +
+  geom_errorbarh(data= hi.spend, aes(x=zero/population * 100, xmin=ci_u.zero/population * 100, 
+                                     xmax=ci_l.zero/population * 100),height=0.1) +
+  geom_point(data= hi.spend, aes(x=lessthan500/population * 100, colour='gold'), size=.9) +
+  geom_errorbarh(data= hi.spend, aes(x=lessthan500/population * 100, xmin=ci_l.lessthan500/population * 100, 
+                                     xmax=ci_u.lessthan500/population * 100),height=0.1) +
+  geom_point(data= hi.spend, aes(x=spend3000to4999/population * 100, colour='blue'), size=.9) +
+  geom_errorbarh(data= hi.spend, aes(x=spend3000to4999/population * 100, xmin=ci_l.spend3000to4999/population * 100, 
+                                     xmax=ci_u.spend3000to4999/population * 100),height=0.1) +
+  coord_flip() + 
+  scale_color_discrete(name="Expenditure", labels = c("$3000 to $4999", "Less than $500", "Zero")) +
+  labs(x="Weighted Proportion of People (%)", y="Year", title="Weighted Sum Proportion of Health Care Expenditure")
+```
+
+
+```{r healthcovereduattainment, echo=FALSE}
+ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~NOTCOV) + 
+  ggtitle('Education Level vs. Health Coverage') + labs(x='Education Level') 
+```
+
+```{r workhealthinsuranceeduattainment, echo=FALSE}
+ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~HIEMPOF) +
+  ggtitle('Education Level vs. Workplace-offered Health Insurance') + labs(x='Education Level')
+```
+
+
+```{r hi2015, echo=FALSE}
+barplot(h, names.arg = m, xlab = "Healthcare Coverage for 2015", 
+        ylab="Percentage (%)", col='blue', main = "Percentage of the Respondents that Has Healthcare Coverage")
+```
+
+```{r hi2015employer, echo=FALSE}
+barplot(h2, names.arg = m2, xlab = "Healthcare Coverage for 2015", 
+        ylab="Percentage (%)", col='blue', main = "Percentage of the Respondents that Has Healthcare Coverage")
+```

@@ -1,0 +1,74 @@
+.container {
+  width: 890px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+#page_header {
+  position: relative;
+  z-index: 2;
+}
+
+#questions {
+  font-size: 1.2em;
+}
+
+.quote {
+  font-style: italic;
+  color: gray;
+  font-weight: 300;
+}
+
+#graphic {
+  padding-top: 60px;
+}
+
+
+#sections {
+  position: relative;
+  display: inline-block;
+  width: 350px;
+  top: 0px;
+  z-index: 90;
+  padding-bottom: 20px;
+}
+
+#vis {
+  display: none;
+  position: fixed;
+  top: 100px;
+  z-index: 1;
+}
+
+
+/* increase the font size for the title class */
+.title {
+  font-size:20px;
+  margin-bottom: 2px;
+  color: #262626;
+  line-height: 1.2em;
+}
+
+/* Give the step class a margin bottom of 300px */
+.step {
+  margin-bottom:500px;
+  line-height: 23px;
+  color: #767678;
+}
+
+.step:last-child {
+  margin-bottom: 200px;
+}
+
+.label {
+    font-size: 14px;
+}
+
+blockquote {
+    font-size: 12px !important;
+}
