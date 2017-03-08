@@ -4,7 +4,7 @@ output:
     keep_tex: true
     fig_caption: true
     latex_engine: pdflatex
-    template: '~/Google Drive/INFO498C/INFO498Final/paper/svm-latex-ms.tex'
+    template: '~/Desktop/INFO498Final/paper/svm-latex-ms.tex'
 title: "Assesing Health Care Coverage and Access Utilizing the National Health Interview Survey"
 author:
 - name: John Diego
@@ -41,7 +41,13 @@ To answer the questions we layed out, we use data provided from the NHIS survey.
 
 To answer the question, _"Does higher educational attainment cause greater chance of acquiring medical insurance?"_, we filtered the dataset, only looking a three specific variables, the _highest educational attainment_, _health insurance coeverage_, and _health insurance offered at workplace_. 
 
+Because the dataset was so large, it was difficult to manage and processing the data was time-consuming.  In order to fully combat this, we used the dplyr package in order to modify the dataset we would be using in such a way that only incorporated the columns we needed to address the question at hand.  After, we then filtered the data so that we would have only the information we needed to answer the questions, while weeding out “empty” data such as “not ascertained,” “didn’t know,” as well as “refused.”  When we were certain of the dataset we needed that only contained relevant information to our questions, we then utilized the ggplot2 R package in order to create well-labeled graphs that visually summarized our results.  From the graphs, we were able to draw reasonable conclusions and generate an analysis of why the data was shaped in the particular way it was.  
+
 ## **Health Care Access**
+
+In respects to the National Health Interview Survey, we wanted to research what percentage of the population had healthcare coverage. We used the “NOTCOV” column of the survey to retrieve the amount of individuals that had coverage and those who did not have healthcare coverage. We do want to mention that there was a total of 1102 individual that responded with “Don’t know”. WE made the decision to exclude these individuals from our data since they do not represent your targeted population.
+ 
+When comparing just the proportions of those who had healthcare coverage to those who lacked coverage, there was a clear transformation. Only 10.23% of the individuals that participated in this survey did not have healthcare coverage. While 89.76% of these individuals did have coverage. 
 
 ## **Health Care Expedentiture**
 
@@ -100,6 +106,18 @@ ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~HIEMPOF) 
 ```
 **Figure 4. Educational Attainment vs. Workplace-offered Health Insurance**
 
+```{r hi2015, echo=FALSE}
+barplot(h, names.arg = m, xlab = "Healthcare Coverage for 2015", 
+        ylab="Percentage (%)", col='blue', main = "Percentage of the Respondents that Has Healthcare Coverage")
+```
+
+**Figure 5. Percentage of the Respondents that Has Healthcare Coverage**
+
+```{r hi2015employer, echo=FALSE}
+barplot(h2, names.arg = m2, xlab = "Healthcare Coverage for 2015", 
+        ylab="Percentage (%)", col='blue', main = "Percentage of the Respondents that Has Healthcare Coverage")
+```
+**Figure 6. Percentage of the Respondents that Has Healthcare Coverage**
 
 # DISCUSSION
 
@@ -115,6 +133,11 @@ ODDS RATIO: 1.19 / 3.66 = **0.33**
 The odds of getting coverage being a high school grad is 0.33 times higher than the odds of getting coverage having a bachelor’s degree.
 
 ## **Health Care Access**
+A huge discussions these recent weeks has been Obama care. Some view it was a total disaster while others suggest that it works but it is not perfect. Our president has spoken that this plan is terrible and this inspired us to consider the what a reality would be like if there was no more Obama care. As a group we believed that without government help, individuals would have to resort to other sorts of health care plans. We decided to focus on employers to study if there is any significant correlation between employers and health care coverage. We do have to note that this information lacked the participation from 42728 individuals. This number was subtracted from the group that did responded as we were interested in the population that did have some sort of coverage. 
+
+As our prior graph indicates, about 89.76% of the surveyed population expressed some sort of healthcare coverage. Out of this population we calculated that 78.69% of population that has some sort of healthcare coverage attains it through an employer. This is only about a 11.07% difference suggesting that the way more people get their healthcare coverage through their workforce. However we did not count those individuals who obtained coverage through their own self-employed business, a union, or even those who were uncertain about their response. 
+
+After analyzing these findings, it is our suggestion that there is some relationship between employers and a person's’ health care coverage. But must point out that it is not very clear to understand how strong this correlation is or to even identify in what specific ways these aspects have an influence on each other. The 11% difference does portray the idea that everyone is obtaining healthcare coverage from their employers. But it is crucial to realize that the portion that missed this question represents, in quantity,  consists of more than half the population that did decide to answer. This great lack of representation from the population is too big to consider a strong and clear correlation between employers and health care coverage. 
 
 ## **Health Care Expedentiture**
 For the chart concerning health care expenditure (Figure 2), We can see the proportion of people who spent a specific level of money on health insurance, whether it be zero,less than 500$, or the other levels. For example, we see that the largest proportion of people mostly spent less than 500 dollars through out time, with atleast more than 30% given any year. Specifically, for 2005, 37.5% percent of the population _spent less than 500 dollars_, but for 2015, it went down to 32.04%. For the people _spending no money_ on health insurance, this proportion mostly stayed between 8% to 12% over the years, with a positive increase over time. Meanwhile, The proportion of people _spending between 3000 to 4000 dollars_ doesn't have a linear change over time like the other levels of expedenture. This proportion stayed between 5% and 6% over time. Showing no linear change for _spending between 3000 to 4000 dollars_ can be interpreted as a positive income, since that means the proportion of the population spending money on health insurance are not seeing an increase of expenditure. One would expect that with the introduction of the Affordable Care Act in 2010, which promised reducing health care costs, the amount of money people are spending on health care would decrease. These expectations turned out to be true, since the graph reflects a positive  rate of change for people spending no money on health insurance, and negative rate of change for people spending less than 500 dollars.

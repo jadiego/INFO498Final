@@ -88,10 +88,10 @@ function display(error, mydata) {
         var oldScroll = 0;
         $(window).scroll(function (event) {
             var scroll = $(window).scrollTop();
-            //console.log("scroll", scroll);
-            if (scroll >= 2650 && scroll > oldScroll) {
+            console.log("scroll", scroll);
+            if (scroll >= 7500 && scroll > oldScroll) {
                 vis.style("display", "none");
-            } else if (scroll >= 2650 && scroll < oldScroll) {
+            } else if (scroll >= 7500 && scroll < oldScroll) {
                 vis.style("display", "inline-block"); // going backwards, turn it on.
             }
             oldScroll = scroll;

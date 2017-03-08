@@ -87,7 +87,7 @@ svg.append("g")
     .attr("dy", "0.3em")
     .style("text-anchor", "end")
     .attr("class", "label")
-    .text("No Health Insurance (%)");
+    .text("Weighted Proportion of Population with No Health Insurance (%)");
 
 function make_data(rawdata) {
     //console.log(rawdata)

@@ -195,8 +195,37 @@ dataset, only looking a three specific variables, the \emph{highest
 educational attainment}, \emph{health insurance coeverage}, and
 \emph{health insurance offered at workplace}.
 
+Because the dataset was so large, it was difficult to manage and
+processing the data was time-consuming. In order to fully combat this,
+we used the dplyr package in order to modify the dataset we would be
+using in such a way that only incorporated the columns we needed to
+address the question at hand. After, we then filtered the data so that
+we would have only the information we needed to answer the questions,
+while weeding out ``empty'' data such as ``not ascertained,'' ``didn't
+know,'' as well as ``refused.'' When we were certain of the dataset we
+needed that only contained relevant information to our questions, we
+then utilized the ggplot2 R package in order to create well-labeled
+graphs that visually summarized our results. From the graphs, we were
+able to draw reasonable conclusions and generate an analysis of why the
+data was shaped in the particular way it was.
+
 \subsection{\texorpdfstring{\textbf{Health Care
 Access}}{Health Care Access}}\label{health-care-access}
+
+In respects to the National Health Interview Survey, we wanted to
+research what percentage of the population had healthcare coverage. We
+used the ``NOTCOV'' column of the survey to retrieve the amount of
+individuals that had coverage and those who did not have healthcare
+coverage. We do want to mention that there was a total of 1102
+individual that responded with ``Don't know''. WE made the decision to
+exclude these individuals from our data since they do not represent your
+targeted population.
+
+When comparing just the proportions of those who had healthcare coverage
+to those who lacked coverage, there was a clear transformation. Only
+10.23\% of the individuals that participated in this survey did not have
+healthcare coverage. While 89.76\% of these individuals did have
+coverage.
 
 \subsection{\texorpdfstring{\textbf{Health Care
 Expedentiture}}{Health Care Expedentiture}}\label{health-care-expedentiture}
@@ -250,6 +279,15 @@ health insurance, X being multiple levels of range of money spent.
 \includegraphics{paper_files/figure-latex/workhealthinsuranceeduattainment-1.pdf}
 \textbf{Figure 4. Educational Attainment vs.~Workplace-offered Health
 Insurance}
+
+\includegraphics{paper_files/figure-latex/hi2015-1.pdf}
+
+\textbf{Figure 5. Percentage of the Respondents that Has Healthcare
+Coverage}
+
+\includegraphics{paper_files/figure-latex/hi2015employer-1.pdf}
+\textbf{Figure 6. Percentage of the Respondents that Has Healthcare
+Coverage}
 
 \section{DISCUSSION}\label{discussion}
 
@@ -334,6 +372,41 @@ coverage having a bachelor's degree.
 
 \subsection{\texorpdfstring{\textbf{Health Care
 Access}}{Health Care Access}}\label{health-care-access-1}
+
+A huge discussions these recent weeks has been Obama care. Some view it
+was a total disaster while others suggest that it works but it is not
+perfect. Our president has spoken that this plan is terrible and this
+inspired us to consider the what a reality would be like if there was no
+more Obama care. As a group we believed that without government help,
+individuals would have to resort to other sorts of health care plans. We
+decided to focus on employers to study if there is any significant
+correlation between employers and health care coverage. We do have to
+note that this information lacked the participation from 42728
+individuals. This number was subtracted from the group that did
+responded as we were interested in the population that did have some
+sort of coverage.
+
+As our prior graph indicates, about 89.76\% of the surveyed population
+expressed some sort of healthcare coverage. Out of this population we
+calculated that 78.69\% of population that has some sort of healthcare
+coverage attains it through an employer. This is only about a 11.07\%
+difference suggesting that the way more people get their healthcare
+coverage through their workforce. However we did not count those
+individuals who obtained coverage through their own self-employed
+business, a union, or even those who were uncertain about their
+response.
+
+After analyzing these findings, it is our suggestion that there is some
+relationship between employers and a person's' health care coverage. But
+must point out that it is not very clear to understand how strong this
+correlation is or to even identify in what specific ways these aspects
+have an influence on each other. The 11\% difference does portray the
+idea that everyone is obtaining healthcare coverage from their
+employers. But it is crucial to realize that the portion that missed
+this question represents, in quantity, consists of more than half the
+population that did decide to answer. This great lack of representation
+from the population is too big to consider a strong and clear
+correlation between employers and health care coverage.
 
 \subsection{\texorpdfstring{\textbf{Health Care
 Expedentiture}}{Health Care Expedentiture}}\label{health-care-expedentiture-1}
