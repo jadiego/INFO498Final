@@ -1,7 +1,7 @@
-install.packages("dplyr")
-install.packages("foreign")
-install.packages("ggplot2")
-install.packages("survey")
+# install.packages("dplyr")
+# install.packages("foreign")
+# install.packages("ggplot2")
+# install.packages("survey")
 
 library(dplyr)
 library(foreign)

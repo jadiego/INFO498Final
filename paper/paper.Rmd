@@ -1,7 +1,6 @@
 ---
 output: 
   pdf_document:
-    citation_package: natbib
     keep_tex: true
     fig_caption: true
     latex_engine: pdflatex
@@ -15,23 +14,25 @@ author:
 - name:  Adrian Santiago
   affiliation: University of Washington
 abstract: "The National Health Interview Survey (NHIS) is the nation’s largest in-person household health survey. It has been conducted annually since 1957 by the National Center for Health Statistics (NCHS), which is a part of the Centers for Disease Control and Prevention (CDC). A broad range of topics are covered but we will specifically focus on healthcare access and expenditure across a multitude of factors such as employer information, race, and academic background."
-keywords: "healthcare, nhis, aca, medicaid, medicare"
+keywords: "healthcare, NHIS, ACA, medicaid, medicare"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
 fontfamily: mathpazo
 fontsize: 10pt
 # spacing: double
-bibliography: ~/Google Drive/INFO498C/INFO498Final/paper/master.bib
-biblio-style: apsr
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 9.5)
+source('calculations.R')
+
+library(ggplot2)
+```
+
 # INTRODUCTION
-The Patient Protection and Affordable Care Act (PPACA), commonly shortened to the Affordable Care Act (ACA) and nicknamed Obamacare, is one of the most important healthcare legislature, creating a significant impact on the US Health care system. However, with the arrival of President Trump in the Oval Office, and with the ACA repeal now underway, some speculate huge consequences such as increased death rates([@trump]). In light of these recent events, it is important that we take a look at the current state of our healthcare system and question whether it is failing or not.
+The Patient Protection and Affordable Care Act (PPACA), commonly shortened to the Affordable Care Act (ACA) and nicknamed Obamacare, is one of the most important healthcare legislature, creating a significant impact on the US Health care system. However, with the arrival of President Trump in the Oval Office, and with the ACA repeal now underway, some speculate huge consequences such as [increased death rates](https://www.washingtonpost.com/posteverything/wp/2017/01/23/repealing-the-affordable-care-act-will-kill-more-than-43000-people-annually/?utm_term=.a2fbb24cd075). In light of these recent events, it is important that we take a look at the current state of our healthcare system and question whether it is failing or not.
 
-The purpose of this paper is to assess healthcare coverage and access across a  multitude of factors. We will specifically look at three aspects of health care - the first aspect is the relationship between educational attainment and access to medical insurance, the second is an overall look at the population on which had health care coverage, and the final exploration covers healthcare expedinture over the years.
-
-# RELATED WORK
-A description of previous papers or projects related to your project.
+The purpose of this paper is to assess healthcare coverage and access across a  multitude of factors. We will specifically look at three aspects of health care - the first aspect is the relationship between educational attainment and access to medical insurance, the second is an overall look at the population and health care coverage, and the final exploration covers healthcare expenditure over the years.
 
 # METHODOLOGY
 To answer the questions we layed out, we use data provided from the NHIS survey. We used various subsets of the survey data, depending on the specific question being analyzed.
@@ -41,15 +42,66 @@ To answer the questions we layed out, we use data provided from the NHIS survey.
 ## **Health Care Access**
 
 ## **Health Care Expedentiture**
-To gain a general outlook on the healthcare system, one way of looking at it is through the perspective of expenditures. Specifically the question we wanted to explore is, _"How has the amount of money spent for medical care changed over the years?"_ One specific variables that was counted for from the survey was **"Amount family spent for medical care, past 12 months"** (N = ). This variable only provided a rough estimate on the family's expenditure on medical care, but is still relevant since interviewers directed respondents to exclude the insurance premiums, over-the-counter drugs, and any costs for which they expected to be reimbursed. Using the provided calculated weight and strata, a **stratified random sampling** was implemented to calculate a weighted score.
+
+To gain a general outlook on the healthcare system, one way of looking at it is through the perspective of expenditures. Specifically the question we wanted to explore is, _"How has the amount of money spent for medical care changed over the years?"_ One specific variable that was counted for from the survey was _"Amount family spent for medical care, past 12 months"_. To see this distribution, data from the 2005 to 2015 NHIS surveys was used (N=1,033,155). We then filtered the data further down to those who responded back to the question (N = 994,797). The distribution of health expenditure over the years can be seen in the graph below.
+
+This independent variable only provides a rough estimate on the family's expenditure on medical care, but is still relevant since interviewers directed respondents to exclude the insurance premiums, over-the-counter drugs, and any costs for which they expected to be reimbursed. 
+
+To make calculations on the greater population, we used the calculated weight and strata within the provided by those who constructed the NHIS dataset. According to the [codebook](https://ihis.ipums.org/), the _sample weight_ was calculated using "adjustments for age, race/ethnicity, and sex using the Census Bureau's population control totals", while _strata_ was represents "the impact of the sample design stratification on the estimates of variance and standard errors." A **stratified random sampling** was implemented to calculate the weighted proportions of people who spend X amount for health insurance, X being multiple levels of range of money spent.
 
 # RESULTS
-The major insights resulting from your research.
 
 ## **Plots** 
 
-# DISCUSSION
-What are the implications of your results?
+```{r expenddistribution, echo=FALSE}
+# Line chart
+# Change of expend over years (Not weighted)
+ggplot(spend.years, aes(x=YEAR, y=count/1000, colour=HCSPENDY)) + geom_line() +
+  geom_point(size=.7) +
+  labs(x="Year", y="Sum of People (Thousands)", title = "Distribution of Health Expenditure") +
+  theme(legend.title=element_blank())
+```
+**Figure 1. Expenditure Distribution over Time**
 
-# FUTURE WORK
-A description of how your system could be extended.
+\smallskip
+
+```{r weightedexpendproportion, echo=FALSE, fig.height=6}
+ggplot(hi.spend, aes(y=factor(YEAR))) +
+  geom_point(data= hi.spend, aes(x=zero/population * 100, colour='red'), size=.9) +
+  geom_errorbarh(data= hi.spend, aes(x=zero/population * 100, xmin=ci_u.zero/population * 100, 
+                                     xmax=ci_l.zero/population * 100),height=0.1) +
+  geom_point(data= hi.spend, aes(x=lessthan500/population * 100, colour='gold'), size=.9) +
+  geom_errorbarh(data= hi.spend, aes(x=lessthan500/population * 100, xmin=ci_l.lessthan500/population * 100, 
+                                     xmax=ci_u.lessthan500/population * 100),height=0.1) +
+  geom_point(data= hi.spend, aes(x=spend3000to4999/population * 100, colour='blue'), size=.9) +
+  geom_errorbarh(data= hi.spend, aes(x=spend3000to4999/population * 100, xmin=ci_l.spend3000to4999/population * 100, 
+                                     xmax=ci_u.spend3000to4999/population * 100),height=0.1) +
+  coord_flip() + 
+  scale_color_discrete(name="Expenditure", labels = c("$3000 to $4999", "Less than $500", "Zero")) +
+  labs(x="Weighted Proportion of People (%)", y="Year", title="Weighted Sum Proportion of Health Care Expenditure")
+```
+**Figure 2. Expenditure Distribution over Time (Weighted)**
+
+\smallskip
+
+# DISCUSSION
+
+## **Educational Attainment Vs Healthcare Access**
+
+## **Health Care Access**
+
+## **Health Care Expedentiture**
+For the chart concerning health care expenditure (Figure 2), We can see the proportion of people who spent a specific level of money on health insurance, whether it be zero,less than 500$, or the other levels. For example, we see that the largest proportion of people mostly spent less than 500 dollars through out time, with atleast more than 30% given any year. Specifically, for 2005, 37.5% percent of the population _spent less than 500 dollars_, but for 2015, it went down to 32.04%. For the people _spending no money_ on health insurance, this proportion mostly stayed between 8% to 12% over the years, with a positive increase over time. Meanwhile, The proportion of people _spending between 3000 to 4000 dollars_ doesn't have a linear change over time like the other levels of expedenture. This proportion stayed between 5% and 6% over time. Showing no linear change for _spending between 3000 to 4000 dollars_ can be interpreted as a positive income, since that means the proportion of the population spending money on health insurance are not seeing an increase of expenditure. One would expect that with the introduction of the Affordable Care Act in 2010, which promised reducing health care costs, the amount of money people are spending on health care would decrease. These expectations turned out to be true, since the graph reflects a positive  rate of change for people spending no money on health insurance, and negative rate of change for people spending less than 500 dollars.
+
+# RELATED WORK
+A description of previous papers or projects related to your project.
+
+# CONLUSION
+Final summary and a description of how your system could be extended.
+
+# REFERENCES
+
+1. IPUMS Health Surveys. Retrieved February 27, 2017
+from https://ihis.ipums.org/ihis/index.shtml
+
+2. David Himmelstein,Steffie Woolhandler. January 23, 2017. Repealing the Affordable Care Act will kill more than 43,000 people annually. Retrieved March 6, 2017 from https://www.washingtonpost.com/posteverything/wp/2017/01/23/repealing-the-affordable-care-act-will-kill-more-than-43000-people-annually/?utm_term=.a2fbb24cd075
