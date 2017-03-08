@@ -189,6 +189,12 @@ specific question being analyzed.
 \subsection{\texorpdfstring{\textbf{Educational Attainment Vs Healthcare
 Access}}{Educational Attainment Vs Healthcare Access}}\label{educational-attainment-vs-healthcare-access}
 
+To answer the question, \emph{``Does higher educational attainment cause
+greater chance of acquiring medical insurance?''}, we filtered the
+dataset, only looking a three specific variables, the \emph{highest
+educational attainment}, \emph{health insurance coeverage}, and
+\emph{health insurance offered at workplace}.
+
 \subsection{\texorpdfstring{\textbf{Health Care
 Access}}{Health Care Access}}\label{health-care-access}
 
@@ -236,10 +242,95 @@ health insurance, X being multiple levels of range of money spent.
 
 \smallskip
 
+\includegraphics{paper_files/figure-latex/healthcovereduattainment-1.pdf}
+\textbf{Figure 3. Distribution of Health Coverage per Education Level}
+
+\smallskip
+
+\includegraphics{paper_files/figure-latex/workhealthinsuranceeduattainment-1.pdf}
+\textbf{Figure 4. Educational Attainment vs.~Workplace-offered Health
+Insurance}
+
 \section{DISCUSSION}\label{discussion}
 
 \subsection{\texorpdfstring{\textbf{Educational Attainment Vs Healthcare
 Access}}{Educational Attainment Vs Healthcare Access}}\label{educational-attainment-vs-healthcare-access-1}
+
+The first graph that we see here represents whether or not an individual
+obtained health coverage based on their education level. Immediately, we
+see that the number 2 subgraph contains a lot more results than the
+number 1 subgraph, which indicates that there were more people who
+received health coverage than did not. Under the number 1 subgraph, we
+see the varying number of people who did not receive health coverage
+given their level of education. There appears to be a notable peak at
+the number 14 which is indicative of those who have completed up to a
+high school diploma. A second notable peak is at the number 15 which
+represents those who have attended college but had not received a
+degree. Such might be the case because most people finish school up
+until high school and also attend college, so it would make sense that
+the bulk of the sample surveyed would reside in that educational
+attainment categories. It would furthermore make sense that they did not
+receive health coverage because nowadays, people obtain health/medical
+insurance from their workplaces since getting these plans on an
+individual basis is a lot more expensive. Those who did not finish
+college or only obtained a high school diploma might have not been able
+to get the best occupation due to their lack of education and skills in
+the workforce, which affected their ability to get health coverage from
+their employer.
+
+In the number 2 subgraph, we see three notable peaks--one at the
+x-coordinate values 14, 15, and 18. These peaks correspond to the bulk
+of those who received health/medical insurance given that they either
+graduated high school, went to college but did not get a degree, or got
+a Bachelor's degree. What is interesting about this is that there were a
+lot of people who did not AND did get health coverage given that they
+graduated from high school or went to college but did not get a degree.
+This might reveal to us that even with a high school degree it is
+possible to get a steady job that includes medical/health insurance
+coverage. However, analyzing the data further, it makes sense that a lot
+of people who received health coverage received at least a Bachelor's
+degree, because that level of education makes it a lot easier to get
+jobs that pay well and include a lot of benefits such as medical
+insurance.
+
+The second graph we are looking at compares educational attainment with
+whether or not a person received health insurance from their workplace.
+The number 1 subgraph represents the count of people who did
+\emph{receive health insurance at their workplace} given their highest
+level of educational attainment, while number 2 subgraph represents the
+count of people who \emph{did not receive health insurance at work}
+given their highest level of educational attainment. Again, in both
+graphs, x-coordinate values 14, 15, and 18, corresponding to having
+graduated high school, attending college without getting a degree, and
+getting a bachelor's degree respectively, are the most prominent peaks
+in the graph. This is due to the fact that most people finish at least
+up until high school, attend college at some point and realize that it
+wasn't for them, or obtain their bachelor's degree. Very \emph{few}
+people quit grade school in the middle of it and very few people get a
+higher education such as a master's or doctoral degree, which is why the
+sample count is so low at those other values. Based on the number 1
+subgraph however, we see that the most people who got health insurance
+from their workplace are those who graduated with a Bachelor's degree.
+This reveals the importance of obtaining a Bachelor's degree when
+getting a job. Other interesting points of analysis are that more high
+school graduates received workplace-offered health insurance than those
+who attended college but did not get a degree. One reasoning behind this
+is that those who did not receive a degree from college might have been
+those who quit in order to pursue their own businesses, and therefore
+did not work for an existing corporation that would have otherwise
+offered them health insurance. The number 2 subgraph shows that high
+school graduates were the least likely to receive health insurance from
+their workplace, which again points back to the fact that they probably
+weren't able to get a great enough job that offered them benefits such
+as health insurance. Most decent jobs nowadays require people to have at
+least a bachelor's degree. The lowest of the three peaks, though, are
+those who got a bachelor's degree, and it shows that with a higher level
+of education, you will have a \emph{better} chance of getting a job with
+better benefits.
+
+ODDS RATIO: 1.19 / 3.66 = \textbf{0.33} The odds of getting coverage
+being a high school grad is 0.33 times higher than the odds of getting
+coverage having a bachelor's degree.
 
 \subsection{\texorpdfstring{\textbf{Health Care
 Access}}{Health Care Access}}\label{health-care-access-1}
@@ -273,7 +364,18 @@ dollars.
 
 \section{RELATED WORK}\label{related-work}
 
-A description of previous papers or projects related to your project.
+Previous projects have been done that measured trends in health
+insurance coverage over the course of time. The report was done by the
+National Center for Health Statistics (NCHS), and presents the selected
+estimates for health insurance coverage among the civilian
+noninstitutionalized U.S. population based on data from 2015 National
+Health Interview Survey (NHIS), as well as comparable estimates from the
+NHIS 2010-2014 surveys. From their results, they were able to determine
+that the trends displayed an overall increase in the population that had
+health insurance coverage in comparison to previous years. They then
+observe short term trends by age, poverty status, as well as race and
+ethnicity to provide a deeper insight of health insurance coverages, and
+what might be influencing access to them.
 
 \section{CONLUSION}\label{conlusion}
 
@@ -291,6 +393,11 @@ Final summary and a description of how your system could be extended.
   Affordable Care Act will kill more than 43,000 people annually.
   Retrieved March 6, 2017 from
   \url{https://www.washingtonpost.com/posteverything/wp/2017/01/23/repealing-the-affordable-care-act-will-kill-more-than-43000-people-annually/?utm_term}=.a2fbb24cd075
+\item
+  Robin A. Cohen. May 2016. Health Insurance Coverage: Early Release of
+  Estimates From the National Health Interview Survey, 2015. Retrieved
+  March 2, 2017 from
+  \url{https://www.cdc.gov/nchs/data/nhis/earlyrelease/insur201605.pdf}
 \end{enumerate}
 \newpage
 \singlespacing 

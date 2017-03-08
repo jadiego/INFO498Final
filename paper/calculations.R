@@ -37,6 +37,16 @@ wanted.rows <- c("Zero","Less than $500",
 d1 <- d %>% filter(HCSPENDY %in% wanted.rows)
 spend.years <- d1 %>% group_by(HCSPENDY, YEAR) %>% summarise(count = n())
 
+# NHIS survey data - 2015
+d2015 <- read.csv("../prepped/personsx.csv")
+
+
+
+# Odds ratio for healthcare access, educational attainment question
+d2015.odds.ratio <- d2015 %>% select(EDUC1, NOTCOV) %>% filter(NOTCOV != 9)
+d2015.hs.odds.ratio <- d2015.odds.ratio %>% filter(EDUC1 == 14)
+d2015.ba.odds.ratio <- d2015.odds.ratio %>% filter(EDUC1 == 18)
+
 
 ############################################################
 ################## Distribution Graphs #####################
@@ -47,6 +57,16 @@ spend.years <- d1 %>% group_by(HCSPENDY, YEAR) %>% summarise(count = n())
 ggplot(spend.years, aes(x=YEAR, y=count/1000, colour=HCSPENDY)) + geom_line() +
   geom_point(size=.7) +
   labs(x="Year", y="Sum of People (Thousands)", title = "Distribution of Health Expenditure")
+
+# Histogram
+# Educational Attainment vs Health Insurance
+ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~NOTCOV) + 
+  ggtitle('Education Level vs. Health Coverage') + labs(x='Education Level') 
+
+# Histogram
+# Educational Attainment vs. Workplace-offered Health Insurance
+ggplot(d2015, aes(EDUC1)) + geom_histogram(stat='count') + facet_wrap(~HIEMPOF) +
+  ggtitle('Education Level vs. Workplace-offered Health Insurance') + labs(x='Education Level')
 
 ############################################################
 ################### Stratified Sample ######################
